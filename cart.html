@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>3D Print Hub - Shopping Cart</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="cart.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+  <header>
+      <div class="container">
+          <div class="logo">
+              <h1>3D Print<span>Hub</span></h1>
+          </div>
+          <nav>
+              <ul>
+                  <li><a href="index.html">Home</a></li>
+                  <li><a href="shop.html">Shop</a></li>
+                  <li><a href="about.html">About</a></li>
+                  <li><a href="contact.html">Contact</a></li>
+              </ul>
+          </nav>
+          <div class="header-buttons">
+              <!-- This will be updated by auth.js -->
+          </div>
+      </div>
+  </header>
+
+  <section class="cart-hero">
+      <div class="container">
+          <h1>Your Shopping Cart</h1>
+          <p>Review your items and proceed to checkout</p>
+      </div>
+  </section>
+
+  <section class="cart-main">
+      <div class="container">
+          <div class="cart-grid">
+              <div class="cart-items-container">
+                  <div class="cart-header">
+                      <div class="cart-header-item">Product</div>
+                      <div class="cart-header-item">Price</div>
+                      <div class="cart-header-item">Quantity</div>
+                      <div class="cart-header-item">Total</div>
+                      <div class="cart-header-item"></div>
+                  </div>
+                  <div id="cart-items">
+                      <!-- Cart items will be loaded here by cart.js -->
+                  </div>
+              </div>
+              
+              <div class="cart-summary">
+                  <h2>Order Summary</h2>
+                  <div class="summary-row">
+                      <span>Subtotal</span>
+                      <span id="cart-total">$0.00</span>
+                  </div>
+                  <div class="summary-row">
+                      <span>Shipping</span>
+                      <span>Free</span>
+                  </div>
+                  <div class="summary-row total">
+                      <span>Total</span>
+                      <span id="order-total">$0.00</span>
+                  </div>
+                  <button id="checkout-button" class="btn btn-primary btn-block">Proceed to Checkout</button>
+                  <a href="shop.html" class="continue-shopping">
+                      <i class="fas fa-arrow-left"></i> Continue Shopping
+                  </a>
+              </div>
+          </div>
+      </div>
+  </section>
+
+  <!-- Checkout Modal -->
+  <div id="checkoutModal" class="modal">
+      <div class="modal-content">
+          <span class="close">&times;</span>
+          <h2>Complete Your Order</h2>
+          <form id="checkoutForm">
+              <div class="form-group">
+                  <label for="shipping-address">Shipping Address</label>
+                  <textarea id="shipping-address" name="shipping-address" rows="3" placeholder="Enter your shipping address" required></textarea>
+              </div>
+              <div class="form-group">
+                  <label for="payment-method">Payment Method</label>
+                  <select id="payment-method" name="payment-method" required>
+                      <option value="" disabled selected>Select payment method</option>
+                      <option value="credit-card">Credit Card</option>
+                      <option value="paypal">PayPal</option>
+                      <option value="crypto">Cryptocurrency</option>
+                  </select>
+              </div>
+              <button type="submit" class="btn btn-primary btn-block">Place Order</button>
+          </form>
+      </div>
+  </div>
+
+  <footer>
+      <div class="container">
+          <div class="footer-grid">
+              <div class="footer-column">
+                  <h3>3D Print<span>Hub</span></h3>
+                  <p>Your one-stop shop for premium 3D printing models.</p>
+              </div>
+              <div class="footer-column">
+                  <h4>Quick Links</h4>
+                  <ul>
+                      <li><a href="index.html">Home</a></li>
+                      <li><a href="shop.html">Shop</a></li>
+                      <li><a href="about.html">About</a></li>
+                      <li><a href="contact.html">Contact</a></li>
+                  </ul>
+              </div>
+              <div class="footer-column">
+                  <h4>Categories</h4>
+                  <ul>
+                      <li><a href="#">Figurines</a></li>
+                      <li><a href="#">Home Decor</a></li>
+                      <li><a href="#">Gadgets</a></li>
+                      <li><a href="#">Art</a></li>
+                  </ul>
+              </div>
+              <div class="footer-column">
+                  <h4>Connect With Us</h4>
+                  <div class="social-icons">
+                      <a href="#"><i class="fab fa-facebook"></i></a>
+                      <a href="#"><i class="fab fa-twitter"></i></a>
+                      <a href="#"><i class="fab fa-instagram"></i></a>
+                      <a href="#"><i class="fab fa-youtube"></i></a>
+                  </div>
+              </div>
+          </div>
+          <div class="footer-bottom">
+              <p>&copy; 2025 3D PrintHub. All rights reserved.</p>
+          </div>
+      </div>
+  </footer>
+
+  <!-- Add cart styles -->
+  <style>
+    .cart-hero {
+      background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("/placeholder.svg?height=300&width=1600");
+      background-size: cover;
+      background-position: center;
+      color: white;
+      padding: 60px 0;
+      text-align: center;
+    }
+    
+    .cart-hero h1 {
+      font-size: 2.5rem;
+      margin-bottom: 15px;
+    }
+    
+    .cart-main {
+      padding: 60px 0;
+      background-color: var(--background-alt);
+    }
+    
+    .cart-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 30px;
+    }
+    
+    .cart-items-container {
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: var(--box-shadow);
+      overflow: hidden;
+    }
+    
+    .cart-header {
+      display: grid;
+      grid-template-columns: 3fr 1fr 1fr 1fr 50px;
+      padding: 15px 20px;
+      background-color: var(--background-alt);
+      font-weight: 600;
+    }
+    
+    .cart-item {
+      display: grid;
+      grid-template-columns: 3fr 1fr 1fr 1fr 50px;
+      padding: 20px;
+      border-bottom: 1px solid var(--border-color);
+      align-items: center;
+    }
+    
+    .cart-item-image {
+      width: 80px;
+      height: 80px;
+      border-radius: 5px;
+      overflow: hidden;
+      margin-right: 15px;
+      float: left;
+    }
+    
+    .cart-item-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    
+    .cart-item-details {
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .cart-item-details h3 {
+      margin-bottom: 5px;
+      font-size: 1.1rem;
+    }
+    
+    .cart-item-price {
+      color: var(--text-light);
+    }
+    
+    .cart-item-quantity {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    
+    .quantity-btn {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      border: 1px solid var(--border-color);
+      background-color: white;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+    }
+    
+    .remove-btn {
+      background: none;
+      border: none;
+      color: var(--text-light);
+      cursor: pointer;
+      font-size: 1.1rem;
+    }
+    
+    .remove-btn:hover {
+      color: var(--danger-color);
+    }
+    
+    .cart-summary {
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: var(--box-shadow);
+      padding: 30px;
+    }
+    
+    .cart-summary h2 {
+      margin-bottom: 20px;
+      font-size: 1.5rem;
+    }
+    
+    .summary-row {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 15px;
+      padding-bottom: 15px;
+      border-bottom: 1px solid var(--border-color);
+    }
+    
+    .summary-row.total {
+      font-weight: bold;
+      font-size: 1.2rem;
+      border-bottom: none;
+    }
+    
+    .continue-shopping {
+      display: block;
+      text-align: center;
+      margin-top: 20px;
+    }
+    
+    .empty-cart {
+      padding: 40px;
+      text-align: center;
+      color: var(--text-light);
+    }
+    
+    /* Modal styles are already included in the signup page */
+    
+    @media (max-width: 992px) {
+      .cart-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .cart-header {
+        display: none;
+      }
+      
+      .cart-item {
+        grid-template-columns: 1fr;
+        gap: 15px;
+      }
+      
+      .cart-item-image {
+        float: none;
+        margin-right: 0;
+      }
+      
+      .cart-item-details, .cart-item-price, .cart-item-quantity, .cart-item-total {
+        width: 100%;
+      }
+      
+      .cart-item-price::before {
+        content: "Price: ";
+        font-weight: 600;
+      }
+      
+      .cart-item-total::before {
+        content: "Total: ";
+        font-weight: 600;
+      }
+      
+      .remove-btn {
+        justify-self: end;
+      }
+    }
+  </style>
+
+  <!-- Include our JavaScript files -->
+  <script src="js/auth.js"></script>
+  <script src="js/products.js"></script>
+  <script src="js/cart.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Get the modal
+      const modal = document.getElementById('checkoutModal');
+      const checkoutBtn = document.getElementById('checkout-button');
+      const closeBtn = document.querySelector('.close');
+      
+      // Show checkout modal when "Proceed to Checkout" is clicked
+      checkoutBtn.addEventListener('click', function() {
+        // Check if user is logged in
+        if (!isLoggedIn()) {
+          window.location.href = '/signup.html?returnUrl=/cart.html';
+          return;
+        }
+        
+        modal.style.display = 'block';
+      });
+      
+      // Close modal when X is clicked
+      closeBtn.addEventListener('click', function() {
+        modal.style.display = 'none';
+      });
+      
+      // Close modal when clicking outside
+      window.addEventListener('click', function(e) {
+        if (e.target === modal) {
+          modal.style.display = 'none';
+        }
+      });
+      
+      // Handle checkout form submission
+      const checkoutForm = document.getElementById('checkoutForm');
+      checkoutForm.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        
+        // Get form values
+        const shippingAddress = document.getElementById('shipping-address').value;
+        const paymentMethod = document.getElementById('payment-method').value;
+        
+        try {
+          // Create order
+          await createOrder(shippingAddress, paymentMethod);
+          
+          // Order created successfully, redirect to dashboard
+          window.location.href = '/user-dashboard.html';
+        } catch (error) {
+          alert(error.message || 'Failed to place order. Please try again.');
+        }
+      });
+      
+      // Update order total
+      const cartTotal = document.getElementById('cart-total');
+      const orderTotal = document.getElementById('order-total');
+      
+      // Set order total to match cart total
+      if (cartTotal && orderTotal) {
+        const observer = new MutationObserver(function(mutations) {
+          orderTotal.textContent = cartTotal.textContent;
+        });
+        
+        observer.observe(cartTotal, { childList: true });
+      }
+    });
+  </script>
+</body>
+</html>
+

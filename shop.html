@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>3D Print Hub - Shop</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+  <header>
+      <div class="container">
+          <div class="logo">
+              <h1>Nano<span>Fab</span></h1>
+          </div>
+          <nav>
+              <ul>
+                  <li><a href="index.html">Home</a></li>
+                  <li><a href="shop.html" class="active">Shop</a></li>
+                  <li><a href="about.html">About</a></li>
+                  <li><a href="contact.html">Contact</a></li>
+              </ul>
+          </nav>
+          <div class="header-buttons">
+              <!-- This will be updated by auth.js -->
+          </div>
+      </div>
+  </header>
+
+  <section class="shop-hero">
+      <div class="container">
+          <h1>3D Model Shop</h1>
+          <p>Browse our collection of premium 3D printable models</p>
+      </div>
+  </section>
+
+  <section class="shop-filters">
+      <div class="container">
+          <div class="filters-container">
+              <div class="search-bar">
+                  <input type="text" placeholder="Search models...">
+                  <button><i class="fas fa-search"></i></button>
+              </div>
+              <div class="filter-options">
+                  <div class="filter-group">
+                      <label>Category:</label>
+                      <select name="category">
+                          <option value="">All Categories</option>
+                          <option value="Figurines">Figurines</option>
+                          <option value="Home Decor">Home Decor</option>
+                          <option value="Gadgets">Gadgets</option>
+                          <option value="Art">Art</option>
+                      </select>
+                  </div>
+                  <div class="filter-group">
+                      <label>Sort By:</label>
+                      <select name="sort">
+                          <option value="newest">Newest</option>
+                          <option value="popular">Most Popular</option>
+                          <option value="price-low">Price: Low to High</option>
+                          <option value="price-high">Price: High to Low</option>
+                      </select>
+                  </div>
+                  <div class="filter-group">
+                      <label>Price Range:</label>
+                      <select name="price">
+                          <option value="">All Prices</option>
+                          <option value="0-10">Under $10</option>
+                          <option value="10-20">$10 - $20</option>
+                          <option value="20-50">$20 - $50</option>
+                          <option value="50-">Over $50</option>
+                      </select>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </section>
+
+  <section class="shop-products">
+      <div class="container">
+          <div class="products-grid">
+              <!-- Products will be loaded here by products.js -->
+          </div>
+      </div>
+  </section>
+
+  <section class="pagination">
+      <div class="container">
+          <div class="pagination-controls">
+              <a href="#" class="pagination-prev disabled"><i class="fas fa-chevron-left"></i> Previous</a>
+              <div class="pagination-numbers">
+                  <!-- Pagination will be updated by products.js -->
+              </div>
+              <a href="#" class="pagination-next">Next <i class="fas fa-chevron-right"></i></a>
+          </div>
+      </div>
+  </section>
+
+  <footer>
+      <div class="container">
+          <div class="footer-grid">
+              <div class="footer-column">
+                  <h3>3D Print<span>Hub</span></h3>
+                  <p>Your one-stop shop for premium 3D printing models.</p>
+              </div>
+              <div class="footer-column">
+                  <h4>Quick Links</h4>
+                  <ul>
+                      <li><a href="index.html">Home</a></li>
+                      <li><a href="shop.html">Shop</a></li>
+                      <li><a href="about.html">About</a></li>
+                      <li><a href="contact.html">Contact</a></li>
+                      <li><a href="signup.html">Contact</a></li>
+                  </ul>
+              </div>
+              <div class="footer-column">
+                  <h4>Categories</h4>
+                  <ul>
+                      <li><a href="#">Figurines</a></li>
+                      <li><a href="#">Home Decor</a></li>
+                      <li><a href="#">Gadgets</a></li>
+                      <li><a href="#">Art</a></li>
+                  </ul>
+              </div>
+              <div class="footer-column">
+                  <h4>Connect With Us</h4>
+                  <div class="social-icons">
+                      <a href="#"><i class="fab fa-facebook"></i></a>
+                      <a href="#"><i class="fab fa-twitter"></i></a>
+                      <a href="#"><i class="fab fa-instagram"></i></a>
+                      <a href="#"><i class="fab fa-youtube"></i></a>
+                  </div>
+              </div>
+          </div>
+          <div class="footer-bottom">
+              <p>&copy; 2025 3D PrintHub. All rights reserved.</p>
+          </div>
+      </div>
+  </footer>
+
+  <!-- Include our JavaScript files -->
+  <script src="js/auth.js"></script>
+  <script src="js/products.js"></script>
+  <script src="js/cart.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>3D Print Hub - My Dashboard</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="user-dashboard.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+  <header>
+      <div class="container">
+          <div class="logo">
+              <h1>Nano<span>Fab</span></h1>
+          </div>
+          <nav>
+              <ul>
+                  <li><a href="index.html">Home</a></li>
+                  <li><a href="shop.html">Shop</a></li>
+                  <li><a href="about.html">About</a></li>
+                  <li><a href="contact.html">Contact</a></li>
+              </ul>
+          </nav>
+          <div class="header-buttons">
+              <!-- This will be updated by auth.js -->
+          </div>
+      </div>
+  </header>
+
+  <section class="dashboard-hero">
+      <div class="container">
+          <h1>My Dashboard</h1>
+          <p>Manage your account and view your purchases</p>
+      </div>
+  </section>
+
+  <section class="dashboard-main">
+      <div class="container">
+          <div class="dashboard-grid">
+              <!-- Sidebar -->
+              <div class="dashboard-sidebar">
+                  <div class="user-profile">
+                      <div class="user-avatar">
+                          <img src="/placeholder.svg?height=100&width=100" alt="User Avatar">
+                      </div>
+                      <div class="user-info">
+                          <h3>John Doe</h3>
+                          <p>Member since March 2025</p>
+                      </div>
+                  </div>
+                  <nav class="dashboard-nav">
+                      <ul>
+                          <li class="active">
+                              <a href="#"><i class="fas fa-shopping-bag"></i> My Purchases</a>
+                          </li>
+                          <li>
+                              <a href="#"><i class="fas fa-heart"></i> Wishlist</a>
+                          </li>
+                          <li>
+                              <a href="#"><i class="fas fa-download"></i> Downloads</a>
+                          </li>
+                          <li>
+                              <a href="#" id="showProfileSettings"><i class="fas fa-user-cog"></i> Account Settings</a>
+                          </li>
+                          <li>
+                              <a href="#"><i class="fas fa-credit-card"></i> Payment Methods</a>
+                          </li>
+                          <li>
+                              <a href="#" onclick="logoutUser()"><i class="fas fa-sign-out-alt"></i> Log Out</a>
+                          </li>
+                      </ul>
+                  </nav>
+              </div>
+
+              <!-- Main Content -->
+              <div class="dashboard-content">
+                  <div class="dashboard-header">
+                      <h2>My Purchases</h2>
+                      <div class="dashboard-actions">
+                          <div class="search-purchases">
+                              <input type="text" placeholder="Search purchases...">
+                              <button><i class="fas fa-search"></i></button>
+                          </div>
+                          <select class="filter-purchases">
+                              <option value="all">All Purchases</option>
+                              <option value="recent">Recent Purchases</option>
+                              <option value="downloaded">Downloaded</option>
+                              <option value="not-downloaded">Not Downloaded</option>
+                          </select>
+                      </div>
+                  </div>
+
+                  <div class="dashboard-stats">
+                      <div class="stat-card">
+                          <div class="stat-icon">
+                              <i class="fas fa-shopping-cart"></i>
+                          </div>
+                          <div class="stat-info">
+                              <h3>12</h3>
+                              <p>Total Purchases</p>
+                          </div>
+                      </div>
+                      <div class="stat-card">
+                          <div class="stat-icon">
+                              <i class="fas fa-download"></i>
+                          </div>
+                          <div class="stat-info">
+                              <h3>8</h3>
+                              <p>Downloads</p>
+                          </div>
+                      </div>
+                      <div class="stat-card">
+                          <div class="stat-icon">
+                              <i class="fas fa-dollar-sign"></i>
+                          </div>
+                          <div class="stat-info">
+                              <h3>$149.95</h3>
+                              <p>Total Spent</p>
+                          </div>
+                      </div>
+                  </div>
+
+                  <div class="purchases-list">
+                      <!-- Purchases will be loaded here by dashboard.js -->
+                  </div>
+
+                  <div class="pagination">
+                      <div class="pagination-controls">
+                          <a href="#" class="pagination-prev disabled"><i class="fas fa-chevron-left"></i> Previous</a>
+                          <div class="pagination-numbers">
+                              <a href="#" class="active">1</a>
+                              <a href="#">2</a>
+                              <a href="#">3</a>
+                          </div>
+                          <a href="#" class="pagination-next">Next <i class="fas fa-chevron-right"></i></a>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </section>
+
+  <!-- Profile Settings Modal -->
+  <div id="profileModal" class="modal">
+      <div class="modal-content">
+          <span class="close">&times;</span>
+          <h2>Account Settings</h2>
+          <form id="profileForm">
+              <div class="form-group">
+                  <label for="profile-name">Full Name</label>
+                  <input type="text" id="profile-name" name="name" placeholder="Enter your full name" required>
+              </div>
+              <div class="form-group">
+                  <label for="profile-email">Email Address</label>
+                  <input type="email" id="profile-email" name="email" placeholder="Enter your email" required>
+              </div>
+              <div class="form-group">
+                  <label for="profile-password">New Password (leave blank to keep current)</label>
+                  <input type="password" id="profile-password" name="password" placeholder="Enter new password">
+              </div>
+              <div class="form-group">
+                  <label for="profile-confirm-password">Confirm New Password</label>
+                  <input type="password" id="profile-confirm-password" name="confirm-password" placeholder="Confirm new password">
+              </div>
+              <button type="submit" class="btn btn-primary btn-block">Save Changes</button>
+          </form>
+      </div>
+  </div>
+
+  <footer>
+      <div class="container">
+          <div class="footer-grid">
+              <div class="footer-column">
+                  <h3>3D Print<span>Hub</span></h3>
+                  <p>Your one-stop shop for premium 3D printing models.</p>
+              </div>
+              <div class="footer-column">
+                  <h4>Quick Links</h4>
+                  <ul>
+                      <li><a href="index.html">Home</a></li>
+                      <li><a href="shop.html">Shop</a></li>
+                      <li><a href="about.html">About</a></li>
+                      <li><a href="contact.html">Contact</a></li>
+                  </ul>
+              </div>
+              <div class="footer-column">
+                  <h4>Categories</h4>
+                  <ul>
+                      <li><a href="#">Figurines</a></li>
+                      <li><a href="#">Home Decor</a></li>
+                      <li><a href="#">Gadgets</a></li>
+                      <li><a href="#">Art</a></li>
+                  </ul>
+              </div>
+              <div class="footer-column">
+                  <h4>Connect With Us</h4>
+                  <div class="social-icons">
+                      <a href="#"><i class="fab fa-facebook"></i></a>
+                      <a href="#"><i class="fab fa-twitter"></i></a>
+                      <a href="#"><i class="fab fa-instagram"></i></a>
+                      <a href="#"><i class="fab fa-youtube"></i></a>
+                  </div>
+              </div>
+          </div>
+          <div class="footer-bottom">
+              <p>&copy; 2025 3D PrintHub. All rights reserved.</p>
+          </div>
+      </div>
+  </footer>
+
+  <!-- Include our JavaScript files -->
+  <script src="js/auth.js"></script>
+  <script src="js/products.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/dashboard.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Get the modal
+      const modal = document.getElementById('profileModal');
+      const showProfileBtn = document.getElementById('showProfileSettings');
+      const closeBtn = document.querySelector('.close');
+      
+      // Show profile modal when "Account Settings" is clicked
+      showProfileBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        // Get current user
+        const user = getCurrentUser();
+        
+        // Populate form with user data
+        document.getElementById('profile-name').value = user.name || '';
+        document.getElementById('profile-email').value = user.email || '';
+        
+        // Show modal
+        modal.style.display = 'block';
+      });
+      
+      // Close modal when X is clicked
+      closeBtn.addEventListener('click', function() {
+        modal.style.display = 'none';
+      });
+      
+      // Close modal when clicking outside
+      window.addEventListener('click', function(e) {
+        if (e.target === modal) {
+          modal.style.display = 'none';
+        }
+      });
+      
+      // Handle profile form submission
+      const profileForm = document.getElementById('profileForm');
+      profileForm.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        
+        // Get form values
+        const name = document.getElementById('profile-name').value;
+        const email = document.getElementById('profile-email').value;
+        const password = document.getElementById('profile-password').value;
+        const confirmPassword = document.getElementById('profile-confirm-password').value;
+        
+        // Validate passwords match if provided
+        if (password && password !== confirmPassword) {
+          alert('Passwords do not match');
+          return;
+        }
+        
+        // Prepare profile data
+        const profileData = { name, email };
+        if (password) {
+          profileData.password = password;
+        }
+        
+        try {
+          // Update profile
+          await updateUserProfile(profileData);
+          
+          // Close modal
+          modal.style.display = 'none';
+          
+          // Show success message
+          alert('Profile updated successfully');
+          
+          // Reload dashboard
+          loadDashboard();
+        } catch (error) {
+          alert(error.message || 'Failed to update profile. Please try again.');
+        }
+      });
+    });
+  </script>
+</body>
+</html>
+

@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>3D Print Hub - Sign Up</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+  <header>
+      <div class="container">
+          <div class="logo">
+              <h1>Nano<span>Fab</span></h1>
+          </div>
+          <nav>
+              <ul>
+                  <li><a href="index.html">Home</a></li>
+                  <li><a href="shop.html">Shop</a></li>
+                  <li><a href="about.html">About</a></li>
+                  <li><a href="contact.html">Contact</a></li>
+              </ul>
+          </nav>
+          <div class="header-buttons">
+              <a href="signup.html" class="btn btn-primary active">Sign Up</a>
+          </div>
+      </div>
+  </header>
+
+  <section class="signup-section">
+      <div class="container">
+          <div class="signup-container">
+              <div class="signup-image">
+                  <img src="/placeholder.svg?height=600&width=500" alt="3D Printing">
+              </div>
+              <div class="signup-form">
+                  <h2>Create Your Account</h2>
+                  <p>Join our community and get access to premium 3D models</p>
+                  <form id="signupForm">
+                      <div class="form-group">
+                          <label for="fullname">Full Name</label>
+                          <input type="text" id="fullname" name="fullname" placeholder="Enter your full name" required>
+                      </div>
+                      <div class="form-group">
+                          <label for="email">Email Address</label>
+                          <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                      </div>
+                      <div class="form-group">
+                          <label for="password">Password</label>
+                          <input type="password" id="password" name="password" placeholder="Create a password" required>
+                      </div>
+                      <div class="form-group">
+                          <label for="confirm-password">Confirm Password</label>
+                          <input type="password" id="confirm-password" name="confirm-password" placeholder="Confirm your password" required>
+                      </div>
+                      <div class="form-checkbox">
+                          <input type="checkbox" id="terms" name="terms" required>
+                          <label for="terms">I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a></label>
+                      </div>
+                      <button type="submit" class="btn btn-primary btn-block">Create Account</button>
+                  </form>
+                  <div class="signup-divider">
+                      <span>or sign up with</span>
+                  </div>
+                  <div class="social-signup">
+                      <button class="btn btn-social btn-google">
+                          <i class="fab fa-google"></i> Google
+                      </button>
+                      <button class="btn btn-social btn-facebook">
+                          <i class="fab fa-facebook-f"></i> Facebook
+                      </button>
+                  </div>
+                  <p class="login-link">Already have an account? <a href="#" id="showLoginForm">Log In</a></p>
+              </div>
+          </div>
+      </div>
+  </section>
+
+  <!-- Login Form Modal -->
+  <div id="loginModal" class="modal">
+      <div class="modal-content">
+          <span class="close">&times;</span>
+          <h2>Log In to Your Account</h2>
+          <form id="loginForm">
+              <div class="form-group">
+                  <label for="login-email">Email Address</label>
+                  <input type="email" id="login-email" name="email" placeholder="Enter your email" required>
+              </div>
+              <div class="form-group">
+                  <label for="login-password">Password</label>
+                  <input type="password" id="login-password" name="password" placeholder="Enter your password" required>
+              </div>
+              <button type="submit" class="btn btn-primary btn-block">Log In</button>
+          </form>
+          <p class="forgot-password"><a href="#">Forgot your password?</a></p>
+      </div>
+  </div>
+
+  <footer>
+      <div class="container">
+          <div class="footer-grid">
+              <div class="footer-column">
+                  <h3>3D Print<span>Hub</span></h3>
+                  <p>Your one-stop shop for premium 3D printing models.</p>
+              </div>
+              <div class="footer-column">
+                  <h4>Quick Links</h4>
+                  <ul>
+                      <li><a href="index.html">Home</a></li>
+                      <li><a href="shop.html">Shop</a></li>
+                      <li><a href="about.html">About</a></li>
+                      <li><a href="contact.html">Contact</a></li>
+                  </ul>
+              </div>
+              <div class="footer-column">
+                  <h4>Categories</h4>
+                  <ul>
+                      <li><a href="#">Figurines</a></li>
+                      <li><a href="#">Home Decor</a></li>
+                      <li><a href="#">Gadgets</a></li>
+                      <li><a href="#">Art</a></li>
+                  </ul>
+              </div>
+              <div class="footer-column">
+                  <h4>Connect With Us</h4>
+                  <div class="social-icons">
+                      <a href="#"><i class="fab fa-facebook"></i></a>
+                      <a href="#"><i class="fab fa-twitter"></i></a>
+                      <a href="#"><i class="fab fa-instagram"></i></a>
+                      <a href="#"><i class="fab fa-youtube"></i></a>
+                  </div>
+              </div>
+          </div>
+          <div class="footer-bottom">
+              <p>&copy; 2025 3D PrintHub. All rights reserved.</p>
+          </div>
+      </div>
+  </footer>
+
+  <!-- Add modal styles -->
+  <style>
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+    
+    .modal-content {
+      background-color: white;
+      margin: 10% auto;
+      padding: 30px;
+      border-radius: 10px;
+      max-width: 500px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+      position: relative;
+    }
+    
+    .close {
+      position: absolute;
+      right: 20px;
+      top: 15px;
+      font-size: 28px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    
+    .forgot-password {
+      text-align: center;
+      margin-top: 20px;
+    }
+  </style>
+
+  <!-- Include our JavaScript files -->
+  <script src="js/auth.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Get the modal
+      const modal = document.getElementById('loginModal');
+      const showLoginBtn = document.getElementById('showLoginForm');
+      const closeBtn = document.querySelector('.close');
+      
+      // Show login modal when "Log In" is clicked
+      showLoginBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        modal.style.display = 'block';
+      });
+      
+      // Close modal when X is clicked
+      closeBtn.addEventListener('click', function() {
+        modal.style.display = 'none';
+      });
+      
+      // Close modal when clicking outside
+      window.addEventListener('click', function(e) {
+        if (e.target === modal) {
+          modal.style.display = 'none';
+        }
+      });
+      
+      // Handle signup form submission
+      const signupForm = document.getElementById('signupForm');
+      signupForm.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        
+        // Get form values
+        const name = document.getElementById('fullname').value;
+        const email = document.getElementById('email').value;
+        const password = document.getElementById('password').value;
+        const confirmPassword = document.getElementById('confirm-password').value;
+        
+        // Validate passwords match
+        if (password !== confirmPassword) {
+          alert('Passwords do not match');
+          return;
+        }
+        
+        try {
+          // Register user
+          await registerUser({ name, email, password });
+          
+          // Get return URL from query params if it exists
+          const urlParams = new URLSearchParams(window.location.search);
+          const returnUrl = urlParams.get('returnUrl') || '/user-dashboard.html';
+          
+          // Redirect to return URL or dashboard
+          window.location.href = returnUrl;
+        } catch (error) {
+          alert(error.message || 'Registration failed. Please try again.');
+        }
+      });
+      
+      // Handle login form submission
+      const loginForm = document.getElementById('loginForm');
+      loginForm.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        
+        // Get form values
+        const email = document.getElementById('login-email').value;
+        const password = document.getElementById('login-password').value;
+        
+        try {
+          // Login user
+          await loginUser({ email, password });
+          
+          // Get return URL from query params if it exists
+          const urlParams = new URLSearchParams(window.location.search);
+          const returnUrl = urlParams.get('returnUrl') || '/user-dashboard.html';
+          
+          // Redirect to return URL or dashboard
+          window.location.href = returnUrl;
+        } catch (error) {
+          alert(error.message || 'Login failed. Please try again.');
+        }
+      });
+    });
+  </script>
+</body>
+</html>
+
